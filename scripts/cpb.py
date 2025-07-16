@@ -53,18 +53,28 @@ try:
     except:
         cpu_temp = "N/A"
 
-
+    # Get disk usage for /mnt/TeslaCam and /mnt/TeslaMusic
+    if os.path.exists(tesla_cam_path):
+        try:
+            cam_usage = shutil.disk_usage("/mnt/TeslaCam").used / (1024 ** 3)  # Convert to GB
+            music_usage = shutil.disk_usage("/mnt/TeslaMusic").used / (1024 ** 3)  # Convert to GB
+            folder_usage_text = f"Cam: {cam_usage:.1f} GB Music: {music_usage:.1f} GB"
+        except:
+            folder_usage_text = "Cam: ?? Music: ??"
+    else:
+        folder_usage_text = "Cam: ?? Music: ??"
 
     # # partial update
     logging.info("4.show time...")
     time_image = Image.new('1', (epd.height, epd.width), 255)
     time_draw = ImageDraw.Draw(time_image)
-    time_draw.text((10, 40), f"Disk: {used_gb} / {total_gb} GB", font=font15, fill=0)
-    time_draw.text((10, 55), f"CPU Temp: {cpu_temp} C", font=font15, fill=0)
+
 
     # Draw static hostname once
-    time_draw.text((10, 10), "Host: " + hostname + " IP: " + ip_address, font=font15, fill=0)
-    time_draw.text((10, 25), drive_status, font=font15, fill=0)
+    time_draw.text((10, 5), "Host: " + hostname + " IP: " + ip_address, font=font15, fill=0)
+    time_draw.text((10, 20), drive_status, font=font15, fill=0)
+    time_draw.text((10, 35), f"Temp: {cpu_temp} C", font=font15, fill=0)
+    time_draw.text((10, 50), folder_usage_text, font=font15, fill=0)  # Display folder usage
 
     epd.displayPartBaseImage(epd.getbuffer(time_image))
     
