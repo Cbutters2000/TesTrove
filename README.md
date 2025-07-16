@@ -72,6 +72,12 @@ sudo dd bs=1M if=/dev/zero of=/piusb.bin count=16384 status=progress  # 16GB = 1
 ```
 *Note: This step may take hours and hours depending on the size of bin you are making.*
 
+Now temporarily format it to vfat so that the fstab operation doesn't get confused:
+
+```bash
+sudo mkdosfs /piusb.bin -F 32 -I
+```
+
 ---
 
 ## MAKE SOME MOUNT POINTS
@@ -88,11 +94,13 @@ sudo mkdir /mnt/TeslaMusic   # Will act as a mount point for Music partition
 
 ## EDIT `fstab` FILE
 
-Append to `/etc/fstab` to auto-mount the drive on boot:
+Edit the `/etc/fstab` to auto-mount the drive on boot Use: `sudo nano /etc/fstab` and add this line:
 
 ```bash
 /piusb.bin /mnt/usb_share auto users,umask=000 0 2
 ```
+
+run the following command 
 
 **Reboot** after editing `fstab`.
 
@@ -108,7 +116,7 @@ Attach the Pi Zero to a Windows PC. !!BE SURE TO USE THE 2nd microUSB port which
 To Present the storage:
 
 ```bash
-sudo modprobe g_mass_storage file=/piusb.bin stall=0 ro=1
+sudo modprobe g_mass_storage file=/piusb.bin stall=0 ro=1 removeable=1
 ```
 You should be able to hear the drive appearing on the USB on your windows machine.
 
