@@ -8,8 +8,8 @@ sleep 4;
 echo "Mounting Drives to Rpi </br>";
 kpartx -a /piusb.bin;
 sleep 2;
-mount -o iocharset=utf8 -o loop /dev/mapper/loop0p1 /mnt/TeslaCam;
-mount -o iocharset=utf8 -o loop /dev/mapper/loop0p2 /mnt/TeslaMusic;
+mount -o iocharset=utf8 -o loop /dev/mapper/loop0p2 /mnt/TeslaCam;
+mount -o iocharset=utf8 -o loop /dev/mapper/loop0p1 /mnt/TeslaMusic;
 echo "TeslaCam and TeslaMusic are now accessible to the Rpi."
 
 fi
