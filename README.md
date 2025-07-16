@@ -1,4 +1,4 @@
-# TesTrove
+# TesTrove -WIP DO NOT USE YET
 TesTrove lets you use a Raspberry Pi Zero 2W to act as a storage device for your Tesla's Music and Dashcam &amp; enables cool syncing features.
 
 ## Initial Setup of SD card and Raspberry Pi Zero 2W:
