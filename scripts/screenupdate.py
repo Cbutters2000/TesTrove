@@ -75,7 +75,7 @@ try:
     time_draw.text((10, 20), drive_status, font=font15, fill=0)
     time_draw.text((10, 35), f"Temp: {cpu_temp} C", font=font15, fill=0)
     time_draw.text((10, 50), folder_usage_text, font=font15, fill=0)  # Display folder usage
-    time_draw.text((10, 65), f"Last Refresh: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", font=font15, fill=0)  # Add date and time
+    time_draw.text((10, 65), f"Last Refresh: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", font=font15, fill=0)  # Add date and time
 
     epd.displayPartBaseImage(epd.getbuffer(time_image))
     
