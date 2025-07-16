@@ -59,8 +59,7 @@ try:
     time_draw.text((10, 55), f"CPU Temp: {cpu_temp} C", font=font15, fill=0)
 
     # Draw static hostname once
-    time_draw.text((10, 10), "Host: " + hostname, font=font15, fill=0)
-    time_draw.text((10, 25), "IP: " + ip_address, font=font15, fill=0)
+    time_draw.text((10, 10), "Host: " + hostname + " IP: " + ip_address, font=font15, fill=0)
 
     epd.displayPartBaseImage(epd.getbuffer(time_image))
     
