@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ -d /mnt/TeslaCam/Teslacam ] ; then
+if [ -d /mnt/TeslaCam/TeslaCam ] ; then
  echo "Drives are Mounted.... unmounting";
  umount /mnt/TeslaCam;
  umount /mnt/TeslaMusic;
