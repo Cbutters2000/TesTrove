@@ -259,7 +259,7 @@ Description=Run screenupdate.py every 30 seconds
 [Timer]
 OnBootSec=30
 OnUnitActiveSec=30
-Unit=cpb.service
+Unit=epaper.service
 
 [Install]
 WantedBy=timers.target
