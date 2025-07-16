@@ -85,7 +85,10 @@ Create directories for storage partitions:
 sudo mkdir /mnt/TeslaCam     # Will act as a mount point for DashCam partition
 sudo mkdir /mnt/TeslaMusic   # Will act as a mount point for Music partition
 ```
-
+Let's also install an important program for interacting with these mount points later on.
+```bash
+sudo apt-get install kpartx
+```
 
 ## USAGE COMMANDS FOR STORAGE DEVICE
 
