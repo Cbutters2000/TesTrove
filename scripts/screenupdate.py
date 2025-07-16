@@ -73,11 +73,11 @@ try:
         try:
             cam_usage = shutil.disk_usage("/mnt/TeslaCam").used / (1024 ** 3)  # Convert to GB
             music_usage = shutil.disk_usage("/mnt/TeslaMusic").used / (1024 ** 3)  # Convert to GB
-            folder_usage_text = f"Cam: {cam_usage:.1f} GB Music: {music_usage:.1f} GB"
+            folder_usage_text = f"DashCam: {cam_usage:.1f} GB Music: {music_usage:.1f} GB"
         except:
             folder_usage_text = "Cam: ?? Music: ??"
     else:
-        folder_usage_text = "Cam: ?? Music: ??"
+        folder_usage_text = "DashCam: ?? Music: ??"
 
     # # partial update
     logging.info("4.show time...")
