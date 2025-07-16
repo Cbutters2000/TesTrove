@@ -217,4 +217,12 @@ cd c
 sudo make clean
 sudo make -j4 EPD=epd2in13V4
 ```
+ - Function Libraries
+```bash
+sudo apt-get update
+sudo apt-get install python3-pip
+sudo apt-get install python3-pil
+sudo apt-get install python3-numpy
+sudo pip3 install spidev
+```
 
