@@ -14,6 +14,21 @@ from waveshare_epd import epd2in13_V4
 import time
 from PIL import Image,ImageDraw,ImageFont
 import traceback
+from datetime import datetime
+# Get current date/time
+now = datetime.now()
+formatted_time = now.strftime("%a %b %d %I:%M %p")  # Format like "Mon Oct 23 02:35 PM"
+
+# Get system uptime
+try:
+    with open("/proc/uptime", "r") as f:
+        uptime = float(f.read().split()[0])
+    days, rem = divmod(int(uptime), 86400)
+    hours, rem = divmod(rem, 3600)
+    minutes, seconds = divmod(rem, 60)
+    uptime_text = f"Uptime: {days}d {hours}h {minutes}m"
+except:
+    uptime_text = "Uptime: N/A"
 
 # Check if the folder /mnt/TeslaCam/TeslaCam exists
 tesla_cam_path = "/mnt/TeslaCam/TeslaCam"
@@ -75,6 +90,8 @@ try:
     time_draw.text((10, 20), drive_status, font=font15, fill=0)
     time_draw.text((10, 35), f"Temp: {cpu_temp} C", font=font15, fill=0)
     time_draw.text((10, 50), folder_usage_text, font=font15, fill=0)  # Display folder usage
+    time_draw.text((10, 65), uptime_text, font=font15, fill=0)
+    time_draw.text((10, 80), f"Time: {formatted_time}", font=font15, fill=0)
 
     epd.displayPartBaseImage(epd.getbuffer(time_image))
     
