@@ -177,7 +177,7 @@ sudo systemctl enable usb-gadget.service
 # ADD-ON 1 Syncing
 # ADD-ON 2 E-Paper Visualization
 
-## Enable SPI
+1 - Enable SPI
 - Open the raspberry pi terminal and enter the following command
 ```bash
 sudo raspi-config
@@ -186,3 +186,24 @@ Choose 3 Interface Options -> I4 SPI -> Yes Enable SPI interface
 
 Now Reboot the Rpi Zero.
 
+2 - Install prerequisites
+    - LG Library
+```bash
+#Open the Raspberry Pi terminal and run the following commands: 
+wget https://github.com/joan2937/lg/archive/master.zip
+unzip master.zip
+cd lg-master
+make
+sudo make install
+#For more details, you can refer to the source code: https://github.com/gpiozero/lg
+```
+  - BCM2835
+```bash
+#Open the Raspberry Pi terminal and run the following command
+cd ~
+wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.71.tar.gz
+tar zxvf bcm2835-1.71.tar.gz
+cd bcm2835-1.71/
+sudo ./configure && sudo make && sudo make check && sudo make install
+# For more information, please refer to the official website: http://www.airspayce.com/mikem/bcm2835/
+```
