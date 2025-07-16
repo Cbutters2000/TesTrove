@@ -18,7 +18,7 @@ import traceback
 # Check if the folder /mnt/TeslaCam/TeslaCam exists
 tesla_cam_path = "/mnt/TeslaCam/TeslaCam"
 drive_status = "Drives Unmounted" if os.path.exists(tesla_cam_path) else "Drives Mounted"
-from datetime import datetime
+import datetime
 logging.basicConfig(level=logging.DEBUG)
 
 try:
