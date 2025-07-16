@@ -207,3 +207,14 @@ cd bcm2835-1.71/
 sudo ./configure && sudo make && sudo make check && sudo make install
 # For more information, please refer to the official website: http://www.airspayce.com/mikem/bcm2835/
 ```
+ - JetsonNano Demo
+``` bash
+wget https://files.waveshare.com/upload/7/71/E-Paper_code.zip
+unzip E-Paper_code.zip -d e-Paper
+cd e-Paper/RaspberryPi_JetsonNano/
+# Now at e-Paper/RaspberryPi_JetsonNano
+cd c
+sudo make clean
+sudo make -j4 EPD=epd2in13V4
+```
+
