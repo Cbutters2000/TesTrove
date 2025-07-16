@@ -233,28 +233,28 @@ ADD CODE HERE LATER
 
 Create a service to update the e-paper periodically
 ```bash
-sudo nano /etc/systemd/system/cpb.service
+sudo nano /etc/systemd/system/epaper.service
 ```
 Add the content to this file:
 ```bash
 [Unit]
-Description=Run cpb.py script
+Description=Run screenupdate.py script
 After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/python3 /home/pi/e-Paper/RaspberryPi_JetsonNano/python/examples/cpb.py
+ExecStart=/usr/bin/python3 /home/pi/e-Paper/RaspberryPi_JetsonNano/python/examples/screenupdate.py
 WorkingDirectory=/home/pi
 User=pi
 ```
 Create a systemd timer file to run the script so e-paper updates every 30 seconds.
 ```bash
-sudo nano /etc/systemd/system/cpb.timer
+sudo nano /etc/systemd/system/epaper.timer
 ```
 Add these lines to the file:
 ```bash
 [Unit]
-Description=Run cpb.py every 30 seconds
+Description=Run screenupdate.py every 30 seconds
 
 [Timer]
 OnBootSec=30
@@ -266,6 +266,6 @@ WantedBy=timers.target
 ```
 Enable the timer
 ```bash
-sudo systemctl enable cpb.timer
+sudo systemctl enable epaper.timer
 ```
 Reboot and your e-paper screen will now start updating every 30 seconds.
