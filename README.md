@@ -79,9 +79,9 @@ sudo dd bs=1M if=/dev/zero of=/piusb.bin count=16384 status=progress  # 16GB = 1
 Create directories for storage partitions:
 
 ```bash
-sudo mkdir /mnt/usb_share    # System-accessible mount point
-sudo mkdir /mnt/TeslaCam     # DashCam partition
-sudo mkdir /mnt/TeslaMusic   # Music partition
+sudo mkdir /mnt/usb_share    # System-accessible mount point shared over usb
+sudo mkdir /mnt/TeslaCam     # Will act as a mount point for DashCam partition
+sudo mkdir /mnt/TeslaMusic   # Will act as a mount point for Music partition
 ```
 
 ---
