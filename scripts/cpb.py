@@ -15,6 +15,10 @@ import time
 from PIL import Image,ImageDraw,ImageFont
 import traceback
 
+# Check if the folder /mnt/TeslaCam/TeslaCam exists
+tesla_cam_path = "/mnt/TeslaCam/TeslaCam"
+drive_status = "Drives Unmounted" if os.path.exists(tesla_cam_path) else "Drives Mounted"
+
 logging.basicConfig(level=logging.DEBUG)
 
 try:
@@ -60,6 +64,7 @@ try:
 
     # Draw static hostname once
     time_draw.text((10, 10), "Host: " + hostname + " IP: " + ip_address, font=font15, fill=0)
+    time_draw.text((10, 20), drive_status, font=font15, fill=0)  # Display drive status
 
     epd.displayPartBaseImage(epd.getbuffer(time_image))
     
